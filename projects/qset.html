@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Designing a low-profile, circularly polarized antenna for the Queen’s University Space Engineering Team’s 2.400–2.450 GHz CubeSat communications band.">
+  <meta name="theme-color" content="#101722">
+  <title>CubeSat S-band patch antenna | Kian Abbasi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">KA</span> Kian Abbasi</a>
+      <nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#contact">Contact</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <header class="case-hero">
+      <div class="wrap case-width">
+        <p class="eyebrow">QSET · RF hardware</p>
+        <h1>CubeSat S-band patch antenna</h1>
+        <p class="hero-description">Designing a low-profile, circularly polarized antenna for the Queen’s University Space Engineering Team’s 2.400–2.450 GHz CubeSat communications band.</p>
+      </div>
+    </header>
+    <article class="wrap case-width case-body">
+    <section>
+      <h2>Modulation and protocol research</h2>
+      <p>I compared GFSK, GMSK, BPSK and QPSK for the SatNOGS-COMMS radio. I looked at occupied bandwidth, receiver synchronization, error performance and power-amplifier requirements. Gaussian-filtered FSK options can use a constant-envelope signal, which suits efficient power amplifiers. QPSK carries two bits per symbol versus one for BPSK, giving it twice the uncoded bit rate at the same symbol rate. Both have the same ideal bit error rate at equal E<sub>b</sub>/N<sub>0</sub> under coherent AWGN assumptions.</p>
+      <p>I also reviewed CCSDS framing and coding options to understand how synchronization, frame overhead and forward error correction affect the useful telemetry rate. The comparison helped frame the trade-off among throughput, bandwidth and receiver performance. <a href="https://librespacefoundation.gitlab.io/satnogs-comms/satnogs-comms-software-mcu/">SatNOGS-COMMS documentation</a></p>
+    </section>
+    <section>
+      <h2>RF link-budget analysis</h2>
+      <p>I worked on a preliminary link budget to relate the radio and antenna choices to the ground receiver’s available margin. The budget starts with transmit power and antenna gains, then subtracts free-space path loss and other losses such as feed and polarization mismatch. Receiver noise turns the resulting received power into a carrier-to-noise density ratio, C/N<sub>0</sub>.</p>
+      <p>Subtracting 10 log<sub>10</sub> of the bit rate from C/N<sub>0</sub> gives the available E<sub>b</sub>/N<sub>0</sub>. Comparing it with the value required for a target error rate gives the link margin for an assumed modulation and coding scheme. This made it possible to reason about how changes in data rate, antenna gain and path loss affect whether a link can close.</p>
+    </section>
+    <section>
+      <h2>Antenna design and simulation</h2>
+      <p>I used MATLAB Antenna Toolbox to model a 50 Ω, single-feed microstrip patch. Truncating opposite corners perturbs two orthogonal patch modes. Circular polarization depends on exciting those modes with nearly equal amplitudes and a 90° phase difference. I varied the patch size, corner cuts and feed position and checked how mesh settings affected the simulated impedance match and broadside axial ratio.</p>
+      <p>The initial study used a published CubeSat patch as a starting point. <a href="https://doi.org/10.1109/WiSPNET.2017.8300049">Rather and Suganthi, <cite>Electrically Small S-band Antenna for CubeSat Applications</cite></a></p>
+    </section>
+    <section><h2>Simulation evidence</h2><p>The design iteration used a 39.60 mm square patch with two opposite 6.75 mm corner truncations and a single coaxial feed. The chart and table reproduce the three sampled frequencies in my antenna optimization notes.</p>
+    <figure class="evidence-figure"><a href="../assets/qset-axial-ratio.png"><img src="../assets/qset-axial-ratio.png" alt="Axial ratio at 2.400, 2.425 and 2.450 GHz is 3.582, 1.393 and 3.674 dB, respectively. The design target is 3 dB."></a><figcaption>Broadside axial ratio from the MATLAB simulation notes. The three markers are individual samples.</figcaption></figure>
+    <div class="table-wrap"><table><caption>Simulated response at three frequencies</caption><thead><tr><th scope="col">Frequency</th><th scope="col">Axial ratio</th><th scope="col">S₁₁</th></tr></thead><tbody><tr><th scope="row">2.400 GHz</th><td>3.582 dB</td><td>−12.279 dB</td></tr><tr><th scope="row">2.425 GHz</th><td>1.393 dB</td><td>−10.576 dB</td></tr><tr><th scope="row">2.450 GHz</th><td>3.674 dB</td><td>−10.193 dB</td></tr></tbody></table></div>
+    <p>The center sample met the 3 dB axial-ratio and −10 dB S₁₁ targets. The axial ratio exceeded its target at both sampled band edges. Full-band and hardware validation would require further work.</p></section>
+      <a class="text-link" href="../index.html#projects">← Back to projects</a>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><span>Kian Abbasi · Electrical Engineering</span><a href="../index.html">Portfolio home</a></div></footer>
+</body>
+</html>

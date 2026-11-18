@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Python link simulator for studying how modulation, pulse shaping and receiver processing affect a digital link. This digital baseband work supports my interest in coherent optical DSP.">
+  <meta name="theme-color" content="#101722">
+  <title>Communications DSP simulator | Kian Abbasi</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html"><span class="mark" aria-hidden="true">KA</span> Kian Abbasi</a>
+      <nav aria-label="Main navigation"><a href="../index.html#projects">Projects</a><a href="../index.html#contact">Contact</a></nav>
+    </div>
+  </header>
+  <main id="main">
+    <header class="case-hero">
+      <div class="wrap case-width">
+        <p class="eyebrow">Python · Digital communications</p>
+        <h1>Communications DSP simulator</h1>
+        <p class="hero-description">A Python link simulator for studying how modulation, pulse shaping and receiver processing affect a digital link. This digital baseband work supports my interest in coherent optical DSP.</p>
+      </div>
+    </header>
+    <article class="wrap case-width case-body">
+    <section><h2>Implementation</h2><p>I implemented normalized Gray-coded QPSK and 16-QAM over a complex additive white Gaussian noise channel. The transceiver applies root-raised-cosine pulse shaping, matched filtering and symbol-rate sampling.</p>
+    <ol class="chain" aria-label="Digital link signal flow"><li>Map bits to symbols</li><li>Shape pulses</li><li>Add complex noise</li><li>Match and sample</li><li>Decide and count errors</li></ol></section>
+    <section><h2>Verification approach</h2><p>I compared Monte Carlo bit error rates with theoretical values across E<sub>b</sub>/N<sub>0</sub> and used constellation, eye and spectral-density plots to inspect signal quality.</p>
+    <figure class="evidence-figure"><a href="../assets/qpsk-theory.png"><img src="../assets/qpsk-theory.png" alt="The theoretical coherent Gray-coded QPSK BER curve drops as Eb over N0 increases"></a><figcaption>Analytical QPSK reference over AWGN, calculated as ½ erfc(√(Eᵦ/N₀)). Simulator output can be compared against this curve.</figcaption></figure>
+    </section>
+      <a class="text-link" href="../index.html#projects">← Back to projects</a>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="wrap footer-inner"><span>Kian Abbasi · Electrical Engineering</span><a href="../index.html">Portfolio home</a></div></footer>
+</body>
+</html>
