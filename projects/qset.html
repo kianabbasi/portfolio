@@ -6,7 +6,7 @@
   <meta name="description" content="Designing a low-profile, circularly polarized antenna for the Queen’s University Space Engineering Team’s 2.400–2.450 GHz CubeSat communications band.">
   <meta name="theme-color" content="#101722">
   <title>CubeSat S-band patch antenna | Kian Abbasi</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=2">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -34,7 +34,12 @@
       <h2>RF link-budget analysis</h2>
       <p>I worked on a preliminary link budget to relate the radio and antenna choices to the ground receiver’s available margin. The budget starts with transmit power and antenna gains, then subtracts free-space path loss and other losses such as feed and polarization mismatch. Receiver noise turns the resulting received power into a carrier-to-noise density ratio, C/N<sub>0</sub>.</p>
       <p>Subtracting 10 log<sub>10</sub> of the bit rate from C/N<sub>0</sub> gives the available E<sub>b</sub>/N<sub>0</sub>. Comparing it with the value required for a target error rate gives the link margin for an assumed modulation and coding scheme. This made it possible to reason about how changes in data rate, antenna gain and path loss affect whether a link can close.</p>
-      <figure class="workflow"><ol class="diagram"><li><strong>Transmit</strong><span>Radio power, feed loss and antenna gain</span></li><li><strong>Propagate</strong><span>Free-space and polarization losses</span></li><li><strong>Receive</strong><span>Ground antenna gain and receiver noise</span></li><li><strong>Check margin</strong><span>Available versus required Eᵦ/N₀</span></li></ol><figcaption>Link-budget model from spacecraft transmitter to ground receiver.</figcaption></figure>
+      <figure class="workflow"><ol class="diagram">
+          <li><strong>Transmit</strong><div>Radio power, feed loss and antenna gain</div></li>
+          <li><strong>Propagate</strong><div>Free-space and polarization losses</div></li>
+          <li><strong>Receive</strong><div>Ground antenna gain and receiver noise</div></li>
+          <li><strong>Check margin</strong><div>Available versus required Eᵦ/N₀</div></li>
+        </ol><figcaption>Link-budget model from spacecraft transmitter to ground receiver.</figcaption></figure>
     </section>
     <section>
       <h2>Antenna design and simulation</h2>

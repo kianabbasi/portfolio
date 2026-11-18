@@ -6,7 +6,7 @@
   <meta name="description" content="A Python link simulator for studying how modulation, pulse shaping and receiver processing affect a digital link. This digital baseband work supports my interest in coherent optical DSP.">
   <meta name="theme-color" content="#101722">
   <title>Communications DSP simulator | Kian Abbasi</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=2">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -40,7 +40,12 @@
       <h2>Pulse shaping and the matched filter</h2>
       <p>I upsampled the symbols and shaped them with a root-raised-cosine (RRC) filter before adding complex white Gaussian noise. The roll-off controls excess bandwidth. The finite filter span trades processing cost and delay against how closely the filter approximates the ideal response.</p>
       <p>The receiver applies a matched RRC filter and samples at the symbol centers after accounting for filter delay. The ideal transmit–receive cascade is raised cosine, with zeros at all other symbol-spaced sampling instants. That property suppresses intersymbol interference at the decision times. Noise can still move a sample across a decision boundary.</p>
-      <figure class="workflow"><ol class="diagram"><li><strong>Map and upsample</strong><span>Bits → complex I/Q symbols</span></li><li><strong>Shape and transmit</strong><span>Transmit RRC + complex AWGN</span></li><li><strong>Filter and sample</strong><span>Matched RRC at the receiver</span></li><li><strong>Decide and compare</strong><span>Demap symbols and count bit errors</span></li></ol><figcaption>Complex-baseband signal flow for the simulated link.</figcaption></figure>
+      <figure class="workflow"><ol class="diagram">
+          <li><strong>Map and upsample</strong><div>Bits → complex I/Q symbols</div></li>
+          <li><strong>Shape and transmit</strong><div>Transmit RRC + complex AWGN</div></li>
+          <li><strong>Filter and sample</strong><div>Matched RRC at the receiver</div></li>
+          <li><strong>Decide and compare</strong><div>Demap symbols and count bit errors</div></li>
+        </ol><figcaption>Complex-baseband signal flow for the simulated link.</figcaption></figure>
     </section>
     <section><h2>Verification and what each plot shows</h2>
       <p>I compared Monte Carlo bit error rates across E<sub>b</sub>/N<sub>0</sub> against theory. For unit-energy QPSK, the energy per bit is half the energy per symbol. Using that conversion when setting the noise level is essential to comparing the simulated and theoretical curves on the same axis. A BER estimate is the number of erroneous bits divided by the number sent, so more bits are needed to characterize rare errors at high E<sub>b</sub>/N<sub>0</sub>.</p>

@@ -6,7 +6,7 @@
   <meta name="description" content="A scheduling and analytics application for examining activity dependencies, float and the paths that drive project milestones.">
   <meta name="theme-color" content="#101722">
   <title>Schedulix | Kian Abbasi</title>
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=2">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -28,7 +28,12 @@
     <section><h2>What Schedulix does</h2><p>Schedulix is a web application for planners and project controls teams working with complex project schedules. It brings schedules from Primavera P6 and Microsoft Project into an interactive workspace where teams can inspect timelines, trace dependencies, compare schedule updates and evaluate delivery risk.</p>
     <p>Suppose a completion milestone moves in the latest update. A planner can open the Gantt view to see the activities in context, trace the path driving the milestone, and check how much float the activities have. That helps the team identify which delays could affect the finish date and focus its discussion on the work that matters most.</p>
     <p>I developed Schedulix with one other developer.</p>
-      <figure class="workflow"><ol class="diagram"><li><strong>Import</strong><span>Load a P6 or Microsoft Project schedule</span></li><li><strong>Compare</strong><span>See what shifted in the latest update</span></li><li><strong>Trace</strong><span>Follow dependencies to a milestone</span></li><li><strong>Prioritize</strong><span>Use float to identify activities needing attention</span></li></ol><figcaption>Example workflow for investigating a change to a delivery milestone.</figcaption></figure>
+      <figure class="workflow"><ol class="diagram">
+          <li><strong>Import</strong><div>Load a P6 or Microsoft Project schedule</div></li>
+          <li><strong>Compare</strong><div>See what shifted in the latest update</div></li>
+          <li><strong>Trace</strong><div>Follow dependencies to a milestone</div></li>
+          <li><strong>Prioritize</strong><div>Use float to identify activities needing attention</div></li>
+        </ol><figcaption>Example workflow for investigating a change to a delivery milestone.</figcaption></figure>
     </section>
     <section><h2>Product screenshots</h2><p>The first view shows the schedule and the logic around a selected activity. The second follows the chain of activities driving a completion milestone.</p>
     <figure class="evidence-figure"><a href="../assets/schedulix-gantt.webp"><img src="../assets/schedulix-gantt.webp" alt="Schedulix Gantt chart next to a hierarchy of project activities, with a dependency diagram below"></a><figcaption>Schedulix product screenshot showing a Gantt schedule and activity dependencies.</figcaption></figure>
