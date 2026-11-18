@@ -34,6 +34,7 @@
       <h2>Research and contribution</h2>
       <p>I designed a Raspberry Pi camera system with a rotating polarizer and a SolidWorks enclosure. I collected sky-polarization data and investigated exposure, gain and optical filtering so intensity changes could be interpreted in the context of the acquisition settings.</p>
       <p>For the analysis, I built a Python linear-regression model for estimating solar azimuth and evaluated error against a simulated Rayleigh-scattering reference. I also explored photoreceptor-inspired filtering, wavelet denoising and sparse coding, and prototyped MATLAB filter stages to study stability, initialization and angle wraparound.</p>
+      <figure class="workflow"><ol class="diagram"><li><strong>Capture</strong><span>Sky images at several analyzer angles</span></li><li><strong>Estimate polarization</strong><span>Recover linear Stokes components</span></li><li><strong>Infer direction</strong><span>Estimate solar azimuth from the pattern</span></li><li><strong>Evaluate</strong><span>Compare with the Rayleigh-model reference</span></li></ol><figcaption>Conceptual analysis workflow from camera measurements to an azimuth estimate.</figcaption></figure>
     </section>
     <section>
       <h2>Reference papers</h2>
